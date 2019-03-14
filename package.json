@@ -1,0 +1,35 @@
+{
+  "name": "graphql-boilerplate",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "dotenv -e ./config/dev.env -- nodemon -x ts-node src/index.ts",
+    "prod": "dotenv -e ./config/prod.env -- nodemon -x ts-node src/index.ts",
+    "generate": "graphqlgen",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "tsc",
+    "start": "env-cmd ./config/prod.env node dist/index.js"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.23",
+    "@types/node": "^11.11.3",
+    "@types/ws": "^6.0.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv-cli": "^1.4.0",
+    "env-cmd": "^8.0.2",
+    "graphql-yoga": "^1.16.7",
+    "jsonwebtoken": "^8.5.0",
+    "lodash": "^4.17.11",
+    "prisma-client-lib": "^1.28.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.3.2",
+    "graphqlgen": "0.5.1",
+    "nodemon": "1.18.9",
+    "ts-node": "8.0.2",
+    "typescript": "3.3.3"
+  },
+  "license": "MIT"
+}

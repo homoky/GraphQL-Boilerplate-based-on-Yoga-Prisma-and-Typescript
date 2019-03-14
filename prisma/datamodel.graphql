@@ -1,0 +1,19 @@
+enum UserRoleType {
+  USER
+  ADMIN
+}
+
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  role: UserRoleType! @default(value: USER)
+  accounts: [Account!]! @relation(name: "UsersOnAccount")
+}
+
+type Account {
+  id: ID! @unique
+  name: String! @unique
+  users: [User!]! @relation(name: "UsersOnAccount")
+}

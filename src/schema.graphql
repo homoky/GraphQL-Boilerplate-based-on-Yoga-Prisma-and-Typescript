@@ -1,0 +1,43 @@
+type Query {
+  accounts: [Account!]!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): AuthPayload!
+  loginUser(data: AuthInput!): AuthPayload!
+}
+
+enum UserRoleType {
+  USER
+  ADMIN
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  role: UserRoleType!
+  accounts: [Account!]!
+}
+
+type Account {
+  id: ID!
+  name: String!
+  users: [User!]!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input AuthInput {
+  email: String!
+  password: String!
+}
+
+type AuthPayload {
+  user: User!
+  token: String!
+}
