@@ -8,8 +8,7 @@
     "generate": "graphqlgen",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "build": "tsc",
-    "start": "env-cmd ./config/prod.env node dist/index.js"
+    "build": "tsc"
   },
   "dependencies": {
     "@types/aws-lambda": "^8.10.23",
